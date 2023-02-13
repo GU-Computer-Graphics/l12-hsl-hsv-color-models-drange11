@@ -65,7 +65,14 @@
     // and add it to the scene
 
     // ================================================================
-
+    let starGeom = starGeometry(40)
+    starGeom.vertexColors = colors;
+    TW.computeFaceColors(starGeom);
+    let starMaterial = new THREE.MeshBasicMaterial(
+        {vertexColors: THREE.VertexColors,
+         side: THREE.DoubleSide });
+    let starMesh = new THREE.Mesh(starGeom, starMaterial);
+    scene.add(starMesh);
     var renderer = new THREE.WebGLRenderer();
 
     TW.mainInit(renderer, scene);
